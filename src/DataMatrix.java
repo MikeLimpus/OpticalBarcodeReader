@@ -103,27 +103,27 @@ public class DataMatrix implements BarcodeIO {
     }
     
     //Computes and returns width of image counting from bottom left
-    private int computeSignalWidth() {
-       int width = 0;
-       for (int i = 0; i < BarcodeImage.MAX_WIDTH; i++) {
-          if(image.getPixel(BarcodeImage.MAX_HEIGHT - 1, i))
-              width++;
-          else
-             break;
-       }
-       return width;
-    }
-    
-    //Computes and returns height of image counting from bottom left
-    private int computeSignalHeight() {
-       int height = 0;
-       for (int i = BarcodeImage.MAX_HEIGHT-1; i >= 0; i--) {
-          if(image.getPixel(i, 0))
-             height++;
+   private int computeSignalWidth() {
+      int width = 0;
+      for (int i = 0; i < BarcodeImage.MAX_WIDTH; i++) {
+         if(image.getPixel(BarcodeImage.MAX_HEIGHT - 1, i))
+             width++;
          else
             break;
       }
-      return height;
+      return width;
+   }
+   
+   //Computes and returns height of image counting from bottom left
+   private int computeSignalHeight() {
+      int height = 0;
+      for (int i = BarcodeImage.MAX_HEIGHT-1; i >= 0; i--) {
+         if(image.getPixel(i, 0))
+            height++;
+        else
+           break;
+     }
+     return height;
    }
    /*
     * Helper method for generateImageFromText() which checks
